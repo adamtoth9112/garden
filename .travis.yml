@@ -1,8 +1,8 @@
 language: android
 android:
   components:
-  - build-tools-26.0.1
-  - android-23
+  - build-tools-25.0.2
+  - android-25
   - android-21
   - add-on
   - extra
@@ -13,7 +13,7 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-19
-    - sys-img-armeabi-v7a-android-21
+    - sys-img-armeabi-v7a-android-25
 deploy:
     provider: releases
     apikey: $GITHUB_KEY
@@ -29,7 +29,7 @@ env:
 sudo: required
 
 before_script:
-    - echo no | android create avd --force -n test -t "android-21" --abi "armeabi-v7a" -s "768x1280"
+    - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a -s "768x1280"
     - emulator -avd test -no-skin -no-audio -no-window &
     - adb wait-for-device
     - adb shell input keyevent 82 &
