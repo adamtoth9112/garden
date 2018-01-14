@@ -9,4 +9,8 @@ class MainPresenter : Presenter<MainScreen>() {
         super.attachScreen(screen)
         GardenApplication.injector?.inject(this)
     }
+
+    fun showAddPlant() {
+        screen?.showAddPlant()
+    }
 }
