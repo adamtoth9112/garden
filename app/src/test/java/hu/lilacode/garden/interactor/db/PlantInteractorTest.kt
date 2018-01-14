@@ -4,8 +4,9 @@ import hu.lilacode.garden.model.Plant
 import hu.lilacode.garden.model.mock.MockDBModel
 import hu.lilacode.garden.model.prod.DBModel
 import io.reactivex.observers.TestObserver
-import org.hamcrest.CoreMatchers
+import org.hamcrest.CoreMatchers.`is`
 import org.junit.*
+import org.junit.Assert.assertThat
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.*
@@ -21,7 +22,7 @@ class PlantInteractorTest {
     @Mock
     lateinit var dbModel : DBModel
 
-    lateinit var mockDBModel : MockDBModel
+    private lateinit var mockDBModel : MockDBModel
 
     @InjectMocks
     lateinit var plantInteractor : PlantInteractor
@@ -42,6 +43,6 @@ class PlantInteractorTest {
         testObserver.assertNoErrors()
         testObserver.assertComplete()
 
-        Assert.assertThat(testObserver.values()[0].name == "oldPlant", CoreMatchers.`is`(true))
+        assertThat(testObserver.values()[0].name, `is`("oldPlant"))
     }
 }

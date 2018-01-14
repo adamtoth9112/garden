@@ -24,6 +24,6 @@ class MockDBModelTest {
         testObserver.assertNoErrors()
         testObserver.assertComplete()
 
-        assertThat(testObserver.values()[0].name == "oldPlant", `is`(true))
+        assertThat(testObserver.values()[0].name, `is`("oldPlant"))
     }
 }
